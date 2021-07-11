@@ -1,0 +1,138 @@
+# Variables : name -> nom du joueur / toutes les caractéristiques + total / answer 1ere réponse / MCommere -> réponse à la question du pc
+from time import sleep
+from random import randint
+def main():
+	
+
+	name= input("Entrez votre nom ")
+	print("Ok "+name+" on va passer aux statistiques de ton personnage")
+
+	
+	force=int(input("Entrez votre carac. de force (inférieure à 100)"))
+	while force > 100:
+		force=int(input("Entrez votre carac. de force (inférieure à 100)"))
+	myFile = open ("Carac. joueur","w+")
+	myFile.write ("Votre force = "+ str(force))
+	myFile.close()	
+
+	agilite=int(input("Entrez votre carac. d'agilité (inférieure à 100)"))
+	while agilite > 100:
+		agilite=int(input("Entrez votre carac. d'agilité (inférieure à 100)"))
+	myFile = open ("Carac. joueur", "a+")
+	myFile.write ("\nVotre agilité ="+ str(agilite))
+	myFile.close()	
+
+	intelligence=int(input("Entrez votre carac. d'intelligence (inférieure à 100)"))
+	while intelligence > 100:
+		intelligence=int(input("Entrez votre carac. d'intelligence (inférieure à 100)"))
+	myFile = open ("Carac. joueur", "a+")
+	myFile.write ("\nVotre intelligence ="+ str(intelligence))
+	myFile.close()	
+
+	reflexes=int(input("Entrez votre carac. de réflexes (inférieure à 100)"))
+	while reflexes > 100:
+		reflexes=int(input("Entrez votre carac. de réflexes (inférieure à 100)"))
+	myFile = open ("Carac. joueur", "a+")
+	myFile.write("\nVos réflexes ="+str(reflexes))
+	myFile.close()	
+
+	capture=int(input("Entrez votre carac. de capture (inférieure à 100)"))
+	while capture > 100:
+		capture=int(input("Entrez votre carac. de capture (inférieure à 100)"))
+	myFile = open ("Carac. joueur", "a+")
+	myFile.write("\nVotre capture ="+str(capture))
+	myFile.close()	
+
+	swag=int(input("Entrez votre carac. de SWAG (inférieure à 100)"))
+	while swag > 100:
+		swag=int(input("Entrez votre carac. de SWAG (inférieure à 100)"))
+	myFile = open ("Carac. joueur","a+")
+	myFile.write("\nVotre SWAG ="+ str(swag))
+	myFile.close()
+
+	total= force+agilite+intelligence+reflexes+capture+swag
+	print("Votre total de caractéristiques s'élève à "+ str(total))
+	myFile = open ("Carac. joueur", "a+")
+	myFile.write("\n\nVotre total de caractéristiques est de " + str(total)+" points\n(Veillez à ce que votre total soit inférieur à 300, si non, recommencez.")
+	sleep(3)
+	print("Arrivée à Bourg-Saas : \n Le professeur Cheh vous introduit le monde des poképutes, vous vous en battez les couilles et montez dans votre chambre, il y a un PC, un lit et un Boieng 777.")
+	answer=int(input("Que choisissez vous de faire ? (1,2,3) "))
+	if answer == 1:
+		print("Vous vous reposez un peu dans votre lit, deux heures passent. Un BOOM se fait entendre, c'est Tamère qui rentre T'es en retard" + str(name)+", bouge ton Q pour aller voir le professeur Cheh")
+	elif answer == 2:
+		print ("Vous vous dirigez vers le PC. Un objet est dedans, vous pouvez décider de le prendre ou non")
+		MCommere = str(input("Voulez vous prendre l'objet ?(oui ou non) "))
+		if MCommere == "oui":
+			print(str(name)+'"récupère un "Morceau Commère" - "Bout de vielle qui peut se vendre assez cher au Magaziinz""')
+			myFile = open ("Inventaire","w+")
+			myFile.write ("- Morceau Commère")
+			myFile.close()
+		elif MCommere == "non":
+			print(str(name)+" passe son chemin")
+		print('"Un BOOM se fait entendre, Tamère rentre : "Tu es en retard "pseudo", bouge ton Q pour aller voir le professeur Cheh"')
+	elif answer == 3:
+		print(str(name)+" essaie de monter dedans, mais une boîte de dialogue apparaît : C'est un outil surprise qui nous servira plus tard." + str(name)+" s'éloigne")
+		sleep(3)
+		print('"Un BOOM se fait entendre, Tamère rentre : "Tu es en retard "pseudo", bouge ton Q pour aller voir le professeur Cheh"')
+
+	print("Vous vous executez et sortez de votre maison, sans dire au revoir a Tamère.")
+	sleep(2)
+	print("Vous entrez dans le bureau du professeur Cheh qui en a rien a foutre, vous toquez et..")
+	sleep(2)
+	print("- Bah tu fous quoi là toi ?")
+	sleep(2)
+	print("- C'est Tamère qui m'a dit de venir")
+	sleep(2)
+	print ("*intrigué* - Ma mère ?")
+	sleep(2)
+	print("-Non, ma mère, elle s'appelle Tamère")
+	sleep(2)
+	print ("-Ah ok et du coup ?")
+	sleep(2)
+	print ("-Bah du coup jviens chercher ma poképute")
+	sleep(2)
+	print("-Ah ok bah du coup t'as le choix entre Salam, Bulbizizi ou CarHalal")
+
+	d100=int(input("Entrez le résultat de votre jet de dé 100 "))
+	if d100 <= capture:
+		starter=str(input("Choisis entre les 3"))
+		if starter=="Salam":
+			print("Salam rejoint votre équipe.")
+			myFile=open("Pokémons","w+")
+			myFile.write("Premier pokémon : Salam")
+			myFile.close()
+		elif starter=="Bulbizizi":
+			print ("Bulbizizi rejoint votre équipe.")
+			myFile=open("Pokémons","w+")
+			myFile.write("Premier pokémon : Bulbizizi")
+			myFile.close()
+		elif starter=="CarHalal":
+			print ("CarHalal rejoint votre équipe.")
+			myFile=open("Pokémons","w+")
+			myFile.write("Premier pokémon : Salam")
+			myFile.close()
+	else:
+	  	print("Pas de chance, ta poképute va t'être donnée au hasard.")
+	  	starter=randint(1,3)
+	  	print(starter)
+	  	if starter == 1:
+			print("Bulbizizi rejoint votre équipe.")
+			myFile=open("Pokémons","w+")
+			myFile.write("Premier pokémon : Bulbizizi")
+			myFile.close()
+		elif starter ==2:
+			print("Salam rejoint votre équipe.")
+			myFile=open("Pokémons","w+")
+			myFile.write("Premier pokémon : Salam")
+			myFile.close()
+		elif starter == 3:
+			print ("CarHalal rejoint votre équipe.")
+			myFile=open("Pokémons","w+")
+			myFile.write("Premier pokémon : Salam")
+			myFile.close()
+
+
+
+
+if __name__ == '__main__':
+	main()
